@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const authController = require('../controllers/authController');
+
+//router para las vistas
 router.get('/', (req, res) => {
     res.render('index');
 })
@@ -24,5 +27,8 @@ router.get('/admin', (req, res) => {
 router.get('/about', (req, res) => {
     res.render('about');
 })
+
+//Router para los métodos del AbortController
+router.post('/register',authController.register)
 
 module.exports = router;
