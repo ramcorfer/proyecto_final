@@ -30,8 +30,8 @@ app.use(function(req, res, next){
     next()    
 });
 
-app.listen(3850, () => {
-    console.log('SERVER UP running in http://localhost:3000');
+app.listen(process.env.PORT, () => {
+    console.log('SERVER UP running in http://localhost:'+process.env.PORT);
 });
 
 //Prueba servidor
