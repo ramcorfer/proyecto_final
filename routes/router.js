@@ -16,6 +16,10 @@ router.get('/register', (req, res) => {
     res.render('register');
 })
 
+router.get('/logout', (req, res) => {
+    res.render('logout',);
+})
+
 router.get('/personal', authController.isAuthenticated, (req, res) => {
     res.render('personal', {usuario:req.usuario});
 })
