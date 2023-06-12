@@ -35,6 +35,7 @@ exports.login = async (req, res) => {
     try {
         const usuario = req.body.usuario
         const password = req.body.password
+
         if( !usuario || !password ) {
             res.render('login',{
                 alert:true,
@@ -93,7 +94,9 @@ exports.isAuthenticated = async (req, res, next) => {
         try {
             const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
             conexion.query('SELECT * FROM usuarios WHERE id = ?', [decodificada.id], (error, results) => {
-                if(!results){return next()}
+                if(!results){
+                    return next()
+                }
                 req.usuario = results[0]
                 return next()
             })
@@ -102,11 +105,36 @@ exports.isAuthenticated = async (req, res, next) => {
             return next()
         }
     }else{
-        res.redirect('/login')
+        res.redirect('login')
     }
 }
 
 exports.logout = (req, res) => {
     res.clearCookie('jwt')
-    return res.redirect('/login')
+    res.redirect('login')
 }
+/*exports.isAuthenticated = (req, res, next) => {
+    if (req.cookies.jwt) {
+        const token = req.cookies.jwt;
+        jwt.verify(token, process.env.JWT_SECRETO, (err, decoded) => {
+            if (err) {
+                console.log(err);
+                return res.redirect('/login');
+            }
+            const userId = decoded.id;
+            conexion.query('SELECT * FROM usuarios WHERE id = ?', [userId], (error, results) => {
+                if (error) {
+                    console.log(error);
+                    return res.redirect('/login');
+                }
+                if (results.length === 0) {
+                    return res.redirect('/login');
+                }
+                req.usuario = results[0];
+                next();
+            });
+        });
+    } else {
+        res.redirect('/login');
+    }
+};*/

@@ -1,0 +1,52 @@
+<section class="section background-white">
+    <div class="s-12 m-12 l-4 center">
+      <h4 class="text-size-20 margin-bottom-20 text-dark text-center">Editar datos de usuario</h4>
+      <% if (user) { %>
+      <form name="contactForm" class="customform" action="/update" method="post">
+        <input id="id" name="id" value="<%= user.id_us %>" hidden>
+        <div class="s-12"> 
+          <input name="nombre" class="name" value="<%= user.nombre_us %>" placeholder="Nombre" title="Your name" type="text" required>
+          <p class="subject-error form-error">Nombre</p>
+        </div>
+        <div class="s-12"> 
+          <input name="domicilio" class="subject" value="<%= user.domicilio %>" placeholder="Domicilio" title="Your address" type="text" required>
+          <p class="subject-error form-error">Domicilio</p>
+        </div>
+        <div class="s-12">
+          <div class="margin">
+            <div class="s-12 m-12 l-6">
+              <input name="email" class="required email" value="<%= user.email %>" placeholder="Introduce email" title="Your e-mail" type="text" required>
+              <p class="email-error form-error">Por favor introduce tu email</p>
+            </div>
+            <div class="s-12 m-12 l-6">
+              <input name="nif" class="name" value="<%= user.nif %>" placeholder="DNI/NIF" title="Your NIF" type="text" required>
+              <p class="name-error form-error">NIF</p>
+            </div>
+          </div>
+        </div>
+        <div class="s-12">
+          <div class="margin">
+            <div class="s-12 m-12 l-6">
+                <input name="usuario" class="name" value="<%= user.usuario %>" placeholder="Usuario" title="Your user" type="text" required>
+                <p class="subject-error form-error">Usuario minimalista</p>
+            </div>
+            <div class="s-12 m-12 l-6">
+              <input name="telefono" class="name" value="<%= user.telefono %>" placeholder="Teléfono" title="Your phone number" type="text" required>
+              <p class="name-error form-error">Telefono</p>
+            </div>
+              <div class="s-12"> 
+                <select id="rol" name="rol" class="form-select">
+                    <option <%= user.rol==1 ? "selected" : '' %> value="1" selected>Administrador</option>
+                    <option <%= user.rol==2 ? "selected" : '' %> value="2">Cliente</option> 
+                </select>
+              <p class="email-error form-error">Rol</p>
+                
+              </div>
+          </div>
+        </div>
+        <div class="s-12"><button class="s-12 submit-form button background-primary text-white" type="submit">Registrar</button></div>
+        <div class="s-12"><a href="admin" class="s-12 submit-form button background-primary text-white" type="submit">Cancelar</a></div>
+      </form>
+      <% } %>
+    </div>           
+  </section> 

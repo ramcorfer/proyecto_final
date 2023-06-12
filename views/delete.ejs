@@ -1,6 +1,6 @@
 
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
@@ -44,18 +44,7 @@
               <img class="logo-after" src="img/logo-dark.png" alt="">
             </a>
           </div>
-          <div class="s-12 l-10">
-            <div class="top-nav right">
-              <p class="nav-text"></p>
-              <ul class="right chevron">
-                <li><a href="/">Home</a></li>
-                <li><a href="about">About Us</a></li>             
-                <li><a href="login">Login</a></li>
-                <li><a href="register">Registro</a></li>
-                <li><a href="logout">Cerrar sesión</a></li>
-              </ul>
-            </div>
-          </div>  
+      
         </nav>
       </header>
       
@@ -74,7 +63,7 @@
           </header>
           <section>
             <div class="container">
-                <a href="/create" class="btn btn-outline-dark mt-4">Añadir usuario</a>
+                <a href="/create" class="btn btn-outline-dark mt-4">¿Seguro que desea eliminar al siguiente usuario?</a>
                 <table>
                     <thead>
                         <tr class="bg-dark text-white">
@@ -91,8 +80,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% results.forEach((user) => { %>
-
+                        
                         <tr>
                             <td><%= user.id_us  %></td>
                             <td><%= user.nif  %></td>
@@ -103,11 +91,11 @@
                             <td><%= user.domicilio  %></td>
                             <td><%=  user.rol %></td>
                             <td>
-                                <a href="/edit/<%= user.id_us  %>" class="btn btn-outline-info">Editar</a> 
-                                <a href="/delete/<%= user.id_us  %>" class="btn btn-outline-danger">Eliminar</a> 
+                                <a href="../admin" class="btn btn-outline-info">Cancelar</a> 
+                                <a href="/delete2/<%= user.id_us  %>" class="btn btn-outline-danger">Eliminar</a> 
                             </td>
                         </tr>
-                    <% }) %>
+                   
                     </tbody>
                 </table>
             </div>
@@ -183,52 +171,7 @@
               </div>                                                                                                                                                                                                                                                                                         
             </div> 
           </section>
-          <section class="section background-white"> 
-            <div class="line">      
-              <h2 class="text-s-size-40 text-size-50 text-line-height-1 margin-bottom-10 text-thin text-center"><span class="text-dark">-</span> Nuestros hoteles <span class="text-dark">-</span></h2> 
-              <p class="margin-bottom-50 text-center">
-              tenemos muchos más hoteles por todo el mundo<br> Aquí tienes varios logos repetidos de negocios random
-              </p>                                                                                               
-              <div class="margin2x">                                                                                              
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                 
-                  <img class="margin-bottom-40" src="img/logo-5.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-bottom-40" src="img/logo-2.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-bottom-40" src="img/logo-3.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-bottom-40" src="img/logo-4.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                 
-                  <img class="margin-bottom-40" src="img/logo-5.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                 
-                  <img class="margin-bottom-40" src="img/logo-1.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-m-bottom-40" src="img/logo-2.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-m-bottom-40" src="img/logo-3.png" alt="">                                                                                                                                                            
-                </div>             
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-m-bottom-40" src="img/logo-4.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-m-bottom-40" src="img/logo-1.png" alt="">                                                                                                                                                            
-                </div>
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img class="margin-m-bottom-40" src="img/logo-3.png" alt="">                                                                                                                                                            
-                </div>             
-                <div class="s-6 m-4 l-2">                                                                                                                                                                                                   
-                  <img src="img/logo-4.png" alt="">                                                                                                                                                            
-                </div>                                                                                                                                                                                              
-              </div>
-            </div>
-          </section>
+     
         </article>
       </main>
       
