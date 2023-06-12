@@ -49,6 +49,7 @@
                 <li><a href="about">About Us</a></li>             
                 <li><a href="login">Login</a></li>
                 <li><a href="register">Registro</a></li>
+                <li><a href="logout">Cerrar sesión</a></li>
               </ul>
             </div>
           </div>  
@@ -69,16 +70,15 @@
           <section class="section background-white">
             <div class="s-12 m-12 l-4 center">
               <h4 class="text-size-20 margin-bottom-20 text-dark text-center">Acceso/Login</h4>
-              <form name="contactForm" class="customform" method="post">
-              
+              <form name="contactForm" class="customform" action="/login" method="post">
                 <div class="s-12">
                   <div class="margin">
                     <div class="s-12 m-12 l-6">
-                      <input name="usuario" class="name" placeholder="Introduce usuario minimalista" title="Your user" type="text" required>
+                      <input name="usuario" class="name" placeholder="Introduce usuario minimalista" title="Your user" type="text" >
                       <p class="email-error form-error">Por favor introduce tu email</p>
                     </div>
                     <div class="s-12 m-12 l-6">
-                      <input name="name" class="name" placeholder="Contraseña" title="Your password" type="password" required>
+                      <input name="password" class="name" placeholder="Contraseña" title="Your password" type="password" >
                       <p class="name-error form-error">Contraseña</p>
                     </div>
                   </div>
@@ -175,5 +175,22 @@
     <script type="text/javascript" src="js/jquery.events.touch.js"></script>
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script> 
+
+    //sweetalert
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <% if(alert) { %>
+            <script>
+                Swal.fire({
+                    title: '<%= alertTitle %>',
+                    text: '<%= alertMessage %>',
+                    icon: '<%= alertIcon %>',
+                    showConfirmButton: '<%= showConfirmButton %>',
+                    timer: '<%= timer %>'
+                }).then(() => {
+                    window.location = '/<%= ruta %>'
+                })
+            </script>
+        <% } %>
+
   </body>
 </html>

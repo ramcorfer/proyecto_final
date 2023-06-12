@@ -18,14 +18,19 @@ app.use(express.json());
 dotenv.config({path: './env/.env'});
 
 //Para poder trabajar con las cookies
-//app.use(cookieParser);
+app.use(cookieParser());
 
 //LLamar al router
 app.use('/', require('./routes/router'));
 
+//Para eliminar la caché y que no se pueda volver con el botón de back después del logout
+app.use(function(req, res, next){
+    if(!req.user)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next()    
+});
 
-
-app.listen(3000, () => {
+app.listen(3600, () => {
     console.log('SERVER UP running in http://localhost:3000');
 });
 

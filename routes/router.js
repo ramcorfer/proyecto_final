@@ -4,31 +4,37 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 
 //router para las vistas
-router.get('/', (req, res) => {
-    res.render('index');
+router.get('/', authController.isAuthenticated, (req, res) => {
+    res.render('index', {usuario:req.usuario});
 })
 
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', {alert:false});
 })
 
 router.get('/register', (req, res) => {
     res.render('register');
 })
 
-router.get('/personal', (req, res) => {
-    res.render('personal');
+router.get('/personal', authController.isAuthenticated, (req, res) => {
+    res.render('personal', {usuario:req.usuario});
 })
 
-router.get('/admin', (req, res) => {
-    res.render('admin');
+router.get('/admin', authController.isAuthenticated, (req, res) => {
+    res.render('admin', {usuario: 'Administrador'});
 })
 
-router.get('/about', (req, res) => {
-    res.render('about');
+router.get('/about', authController.isAuthenticated, (req, res) => {
+    res.render('about', {usuario:req.usuario});
 })
 
-//Router para los métodos del AbortController
-router.post('/register',authController.register)
+//Router para los métodos del AuthController
+router.post('/register', authController.register);
+router.post('/login', authController.login);
+router.get('logout', authController.logout)
+
+//Router crud de usuarios
+
+
 
 module.exports = router;
